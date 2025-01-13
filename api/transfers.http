@@ -1,0 +1,159 @@
+### Test Case 1: Find Cheapest Route with valid input
+POST http://localhost:8080/api/transfers
+Content-Type: application/json
+
+{
+  "maxWeight": 15,
+  "availableTransfers": [
+    {
+      "weight": 5,
+      "cost": 10
+    },
+    {
+      "weight": 10,
+      "cost": 20
+    },
+    {
+      "weight": 3,
+      "cost": 5
+    },
+    {
+      "weight": 8,
+      "cost": 15
+    }
+  ]
+}
+
+### Test Case 2: Find Cheapest Route with no available transfers
+POST http://localhost:8080/api/transfers
+Content-Type: application/json
+
+{
+  "maxWeight": 10,
+  "availableTransfers": []
+}
+
+### Test Case 3: Find Cheapest Route with zero max weight
+POST http://localhost:8080/api/transfers
+Content-Type: application/json
+
+{
+  "maxWeight": 0,
+  "availableTransfers": [
+    {
+      "weight": 5,
+      "cost": 10
+    },
+    {
+      "weight": 10,
+      "cost": 20
+    }
+  ]
+}
+
+### Test Case 4: Find Cheapest Route with only one fitting transfer
+POST http://localhost:8080/api/transfers
+Content-Type: application/json
+
+{
+  "maxWeight": 5,
+  "availableTransfers": [
+    {
+      "weight": 5,
+      "cost": 10
+    },
+    {
+      "weight": 10,
+      "cost": 20
+    }
+  ]
+}
+
+### Test Case 5: Find Cheapest Route with transfers exceeding weight limit
+POST http://localhost:8080/api/transfers
+Content-Type: application/json
+
+{
+  "maxWeight": 5,
+  "availableTransfers": [
+    {
+      "weight": 10,
+      "cost": 50
+    },
+    {
+      "weight": 15,
+      "cost": 70
+    },
+    {
+      "weight": 20,
+      "cost": 90
+    }
+  ]
+}
+
+### Test Case 6: Find Cheapest Route with exact weight match for transfers
+POST http://localhost:8080/api/transfers
+Content-Type: application/json
+
+{
+  "maxWeight": 10,
+  "availableTransfers": [
+    {
+      "weight": 5,
+      "cost": 10
+    },
+    {
+      "weight": 10,
+      "cost": 20
+    },
+    {
+      "weight": 3,
+      "cost": 5
+    }
+  ]
+}
+
+### Test Case 7: Find Cheapest Route with larger weight limit but no valid transfer
+POST http://localhost:8080/api/transfers
+Content-Type: application/json
+
+{
+  "maxWeight": 50,
+  "availableTransfers": [
+    {
+      "weight": 100,
+      "cost": 200
+    },
+    {
+      "weight": 80,
+      "cost": 150
+    }
+  ]
+}
+
+### Test Case 8: Find Cheapest Route with multiple optimal combinations
+POST http://localhost:8080/api/transfers
+Content-Type: application/json
+
+{
+  "maxWeight": 15,
+  "availableTransfers": [
+    {
+      "weight": 5,
+      "cost": 10
+    },
+    {
+      "weight": 5,
+      "cost": 12
+    },
+    {
+      "weight": 10,
+      "cost": 20
+    },
+    {
+      "weight": 6,
+      "cost": 15
+    }
+  ]
+}
+
